@@ -1,0 +1,28 @@
+{
+  "name": "direct-styled-example",
+  "homepage": "https://everweij.github.io/direct-styled",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/styled-components": "^4.1.15",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-scripts": "2.1.8",
+    "direct-styled": "link:..",
+    "styled-components": "^4.2.0",
+    "typescript": "^3.6.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

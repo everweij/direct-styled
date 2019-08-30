@@ -1,0 +1,59 @@
+{
+  "name": "direct-styled",
+  "version": "1.0.0",
+  "description": "",
+  "author": "everweij",
+  "license": "MIT",
+  "repository": "everweij/react-transpose",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "type-check": "tsc --emitDeclarationOnly true --declaration true",
+    "test": "jest",
+    "build": "yarn run clean && yarn test && rollup -c && yarn run type-check && yarn run uglify",
+    "start": "rollup -c -w",
+    "uglify": "uglifyjs ./dist/index.js --compress --mangle -o ./dist/index.min.js",
+    "prepare": "yarn run build"
+  },
+  "dependencies": {
+    "shallow-equal-object": "^1.1.1",
+    "utility-types": "^3.5.0"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@testing-library/react": "^9.1.3",
+    "@types/jest": "^23.1.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.2",
+    "uglify-es": "^3.3.9"
+  },
+  "files": [
+    "dist"
+  ]
+}
