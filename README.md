@@ -2,6 +2,8 @@
 
 Very tiny (2kb) lib built with Typescript containing a HOC and a hook which enables you to set rapid changing styles without causing React-re-render.
 
+Read my blog post for more [background](https://www.erikverweij.dev/blog/working-with-rapid-changing-styles/) regarding the how's and why's.
+
 Advice: Try to update styles with normal React state first! React is very fast, and most of the time `React.useState` will suffice.
 
 ```jsx
