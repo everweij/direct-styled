@@ -6,8 +6,17 @@ function useDirectStyle() {
   // keep track of updater functions
   const subsciptions = React.useRef<Updater[]>([]);
 
+  // stash a style when set is called, but no subscriptions are present
+  const stashedStyle = React.useRef<React.CSSProperties | null>();
+
   // setter which applies styles to all subscribed components
   function set(style: React.CSSProperties) {
+    if (subsciptions.current.length === 0) {
+      stashedStyle.current = style;
+    } else {
+      stashedStyle.current = null;
+    }
+
     subsciptions.current.forEach(updater => updater(style));
   }
 
@@ -18,7 +27,14 @@ function useDirectStyle() {
       _subscribe: onUpdate => {
         subsciptions.current.push(onUpdate);
 
-        return () => subsciptions.current.filter(x => x !== onUpdate);
+        if (stashedStyle.current) {
+          onUpdate(stashedStyle.current);
+        }
+
+        return () =>
+          (subsciptions.current = subsciptions.current.filter(
+            x => x !== onUpdate
+          ));
       }
     };
   }, []);
